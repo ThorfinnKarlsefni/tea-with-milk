@@ -1,4 +1,4 @@
-# zf-test
+# tea-with-milk
 
 ## Project setup
 ```
