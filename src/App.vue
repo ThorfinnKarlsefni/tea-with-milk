@@ -1,29 +1,71 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <!-- shell -->
     <router-view/>
   </div>
+  <!-- built files will be auto injected -->
 </template>
+<script>
+export default {
+  // data() {
+  //   return {
+  //     transitionName: ""
+  //   };
+  // },
+  // watch: {
+  //   $route(to, from) {
+  //     const toDepth = to.path.split("/").length;
+  //     const fromDepth = from.path.split("/").length;
+  //     this.transitionName = toDepth > fromDepth ? "fold-left" : "fold-right";
+  //   }
+  // }
+}
+</script>
 
-<style lang="less">
+<style>
+/* @import url("../src/assets/css/normalize.css"); */
+/* @import url("../src/assets/css/common.css"); */
+@import url("../src/assets/css/app.css");
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100%;
+  width: 100%;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+
+.fold-left-enter-active {
+  animation-name: fold-left-in;
+  animation-duration: 0.3s;
+}
+.fold-left-leave-active {
+  animation-name: fold-left-out;
+  animation-duration: 0.3s;
+}
+.fold-right-enter-active {
+  animation-name: fold-right-in;
+  animation-duration: 0.3s;
+}
+.fold-right-leave-active {
+  animation-name: fold-right-out;
+  animation-duration: 0.3s;
+}
+
+@keyframes fold-left-in {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fold-left-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
   }
 }
 </style>
